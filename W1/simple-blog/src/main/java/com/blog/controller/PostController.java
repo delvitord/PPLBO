@@ -49,5 +49,11 @@ public class PostController {
         return posts;
     }
 
+    @RequestMapping("/posts/search/content")
+    public List<Post> searchByContent(@RequestParam("query") String query) {
+        List<Post> posts = postService.searchPostsByContent(query);
+        return posts;
+    }
+
 
 }

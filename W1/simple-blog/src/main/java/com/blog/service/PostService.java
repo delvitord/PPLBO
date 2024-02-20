@@ -39,4 +39,9 @@ public class PostService {
         List<Post> posts = postRepository.findPostLikeTitle(query);
         return posts;
     }
+
+    public List<Post> searchPostsByContent(String query) {
+        List<Post> posts = postRepository.findPostLikeContent(query);
+        return posts;
+    }
 }

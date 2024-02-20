@@ -46,4 +46,10 @@ public class PostRepository {
         RowMapper<Post> rowMapper = new PostMapper();
         return this.jdbcTemplate.query(sql, rowMapper, '%'+query+'%' );
     }
+
+    public List<Post> findPostLikeContent(String query) {
+        String sql = "SELECT * FROM post WHERE content LIKE ?";
+        RowMapper<Post> rowMapper = new PostMapper();
+        return this.jdbcTemplate.query(sql, rowMapper, '%'+query+'%' );
+    }
 }
