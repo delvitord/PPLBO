@@ -52,4 +52,11 @@ public class PostRepository {
         RowMapper<Post> rowMapper = new PostMapper();
         return this.jdbcTemplate.query(sql, rowMapper, '%'+query+'%' );
     }
+
+    public int savePost(Post post) {
+        String sql = "INSERT INTO post (user, title, content, reg_date, updt_date) VALUES (?, ?, ?, ?, ?)";
+        return this.jdbcTemplate.update(sql, post.getUser(), post.getTitle(), post.getContent(), post.getRegDate(), post.getUpdtDate());
+    }
+
+
 }
