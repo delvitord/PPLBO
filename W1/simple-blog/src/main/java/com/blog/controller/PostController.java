@@ -51,7 +51,7 @@ public class PostController {
 
     @RequestMapping("/posts/search/title")
     public List<Post> searchByTitle(@RequestParam("query") String query) {
-        List<Post> posts = postService.searchPostsByTitle(query);
+        List<Post> posts = postService.searchPostByTitle(query);
         return posts;
     }
 

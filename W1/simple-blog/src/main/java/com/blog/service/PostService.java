@@ -41,13 +41,13 @@ public class PostService {
         return postList;
     }
 
-    public List<Post> searchPostsByTitle(String query) {
-        List<Post> posts = postRepository.findPostLikeTitle(query);
+    public List<Post> searchPostByTitle(String query) {
+        List<Post> posts = jpaRepository.findByTitleContainingOrderByUpdtDateDesc(query);
         return posts;
     }
 
     public List<Post> searchPostsByContent(String query) {
-        List<Post> posts = postRepository.findPostLikeContent(query);
+        List<Post> posts = jpaRepository.findByContentContainingOrderByUpdtDateDesc(query);
         return posts;
     }
 
